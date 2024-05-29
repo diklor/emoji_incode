@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpjaa1tqgkita"]
+
+[ext_resource type="Script" path="res://addons/emoji_incode/emoji_popup.gd" id="1_lau73"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7up18"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 0.784314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytty7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eb0q7"]
+
+[sub_resource type="Theme" id="Theme_c1cev"]
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_7up18")
+Window/styles/embedded_border = SubResource("StyleBoxEmpty_ytty7")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxEmpty_eb0q7")
+
+[node name="popup_panel" type="PopupPanel"]
+theme = SubResource("Theme_c1cev")
+script = ExtResource("1_lau73")
+
+[node name="margin" type="MarginContainer" parent="."]
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="vbox" type="VBoxContainer" parent="margin"]
+layout_mode = 2
+
+[node name="_section_tmp" type="VBoxContainer" parent="margin/vbox"]
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="margin/vbox/_section_tmp"]
+layout_mode = 2
+
+[node name="_emoji_tmp" type="Button" parent="margin/vbox/_section_tmp/hbox"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "🎵"
+
+[node name="section_name" type="Label" parent="margin/vbox/_section_tmp"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Section1"
