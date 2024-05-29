@@ -1,6 +1,9 @@
 # emoji_incode
-test plugin 
+Test plugin 
+Show emojis popup `Alt + . (Period)`
 
 I'm just testing...
+
+
 
 ![icon](/preview.png)
