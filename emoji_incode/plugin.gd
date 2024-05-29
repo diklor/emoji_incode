@@ -105,4 +105,8 @@ func _input(event: InputEvent) -> void:
 
 func _exit_tree() -> void:
 	keycode = null
+	if emoji_popup != null:
+		if emoji_popup.get_parent():
+			emoji_popup.get_parent().remove_child(emoji_popup)
+		emoji_popup.queue_free()
 	_clear_emojis()
