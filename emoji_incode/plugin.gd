@@ -28,6 +28,7 @@ const EMOJIS: Dictionary = { #Dictionary[String, Dictionary[String, String]]
 		'no': '❌',
 		'redflag': '🚩',
 		'heart': '♥',
+		'stop': '🚫',
 	},
 	'other': {
 		'finally': '🎉',
@@ -42,9 +43,9 @@ const EMOJIS: Dictionary = { #Dictionary[String, Dictionary[String, String]]
 func decode_custom_emoji(array: PackedByteArray):
 	return array.get_string_from_utf8()
 
-func encode_custom_emoji(emoji: String) -> PackedByteArray:
-	var emoji_buffer :=  emoji.to_utf8_buffer()
-	if emoji == emoji_buffer.get_string_from_utf8():
+func encode_custom_emoji(emoji_symbol: String) -> PackedByteArray:
+	var emoji_buffer :=  emoji_symbol.to_utf8_buffer()
+	if emoji_symbol == emoji_buffer.get_string_from_utf8():
 		return emoji_buffer
 	return PackedByteArray()
 
@@ -98,9 +99,7 @@ func _input(event: InputEvent) -> void:
 			var base_editor := _get_base_editor()
 			if emoji_popup.get_parent() and emoji_popup.get_parent() != base_editor:
 				emoji_popup.reparent(base_editor)
-		print(emoji_popup.is_node_ready())
 		emoji_popup.toggle_popup(get_viewport().get_mouse_position())
-		print(emoji_popup, emoji_popup.visible)
 
 
 
