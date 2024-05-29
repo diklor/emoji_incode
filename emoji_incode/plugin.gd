@@ -76,9 +76,9 @@ func _enter_tree() -> void:
 	keycode.alt_pressed = true
 	set_process_input(true)
 	
-	script_editor.editor_script_changed.connect(func(script: Script) -> void:
-		prints(script)
-	)
+#	script_editor.editor_script_changed.connect(func(script: Script) -> void:
+#		prints(script)
+#	)
 
 
 
