@@ -67,19 +67,14 @@ func _get_base_editor() -> CodeEdit:
 
 
 func _enter_tree() -> void:
-	var script_editor := _get_script_editor()
-	var current_editor = script_editor.get_current_editor()
-	var base_editor := current_editor.get_base_editor()
-	
 	keycode = InputEventKey.new()
 	keycode.keycode = KEY_PERIOD
 	keycode.alt_pressed = true
 	set_process_input(true)
 	
-#	script_editor.editor_script_changed.connect(func(script: Script) -> void:
-#		prints(script)
-#	)
-
+	main_screen_changed.connect(func(screen_name: String) -> void:
+		set_process_input(screen_name == 'Script')
+	)
 
 
 func _input(event: InputEvent) -> void:
